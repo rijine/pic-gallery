@@ -1,16 +1,20 @@
-let images = ['lorempixel'];
+let images = ['lorempixel.jpg', 'lorempixel-1.jpg'];
 
 
-let Gallery = function(images, target) {
+let GalleryComponent = function(images, target) {
     this.container = target ? document.getElementById(target) : document.getElementsByTagName('body')[0];
     this.images = images;
     this.currentImageIndex = 0;
+    this.imgTagRef = null;
+    this.counterRef = null;
+
+    //defaults
+    const path = 'images/';
 
     this.init = function(){
         let self = this;
-        //self.container.
-        //self.createButtons();
         self.createView();
+        self.setImage();
 
     }
 
@@ -20,25 +24,39 @@ let Gallery = function(images, target) {
         let nextBtn = document.createElement('button');
         let prevBtn = document.createElement('button');
         nextBtn.className = 'btn';
-        nextBtn.innerHTML = 'Next >';
+        nextBtn.innerHTML = 'Next >>';
         prevBtn.className = 'btn';
-        prevBtn.innerHTML = '< Previous';
+        prevBtn.innerHTML = '<< Previous';
 
         //Events
-        nextBtn.addEventListener("click", self.nextImage);
-        prevBtn.addEventListener("click", self.prevImage);
+        nextBtn.addEventListener("click", function(){
+            self.nextImage();
+            self.setImage();
+        }, false);
+        prevBtn.addEventListener("click", function(){
+            self.prevImage();
+            self.setImage();
+        });
         buttonContainer.appendChild(prevBtn);
         buttonContainer.appendChild(nextBtn);
         return buttonContainer;
     }
 
     this.createImageView = function() {
+        let self = this;
         let imageContainer = document.createElement('div');
-        let imgTag = document.createElement('img');
-        imgTag.className = 'image-container'; 
-        imageContainer.appendChild(imgTag);
+        self.imgTagRef = document.createElement('img');
+        self.imgTagRef.className = 'image-container'; 
+        imageContainer.appendChild(self.imgTagRef);
 
         return imageContainer;
+    }
+
+    this.createCounterView = function(){
+        let self = this;
+        self.counterRef = document.createElement('div');
+
+        return counterRef;
     }
 
     this.createView = function(){
@@ -51,23 +69,35 @@ let Gallery = function(images, target) {
         self.container.appendChild(galleryContainer);
     }
 
-    this.getImages = function(){
+    // this.getImages = function(){
+    // };
 
-    };
-
-    this.getImage = function() {
-
+    this.setImage = function() {
+        let self = this;
+        self.imgTagRef.src = path + self.images[self.currentImageIndex];
     };
 
     this.nextImage = function(){
+        let self = this;
         console.log('next');
+        if( (self.images.length - 1) > self.currentImageIndex){
+            self.currentImageIndex++;
+        }else{
+            self.currentImageIndex = 0;
+        }
     }
 
     this.prevImage = function(){
+        let self = this;
         console.log('prev');
+        if(self.currentImageIndex > 0 ){
+            self.currentImageIndex--;
+        }else{
+            self.currentImageIndex = self.images.length - 1; 
+        }
     }
 
 }
 
-let gallery = new Gallery(images);
+let gallery = new GalleryComponent(images);
 gallery.init();
