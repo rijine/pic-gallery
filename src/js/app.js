@@ -15,6 +15,7 @@ let GalleryComponent = function(images, target) {
         let self = this;
         self.createView();
         self.setImage();
+        self.updateCounter();
 
     }
 
@@ -54,9 +55,16 @@ let GalleryComponent = function(images, target) {
 
     this.createCounterView = function(){
         let self = this;
-        self.counterRef = document.createElement('div');
+        let counterContainer = document.createElement('div');
+        self.counterRef = document.createElement('span');
 
-        return counterRef;
+        counterContainer.appendChild(self.counterRef);
+        return counterContainer;
+    }
+
+    this.updateCounter = function() {
+        let self = this;
+        self.counterRef.innerHTML = '(' + (self.currentImageIndex + 1) + '/' + self.images.length + ')';
     }
 
     this.createView = function(){
@@ -65,6 +73,7 @@ let GalleryComponent = function(images, target) {
         galleryContainer.className = 'container';
         galleryContainer.appendChild( self.createImageView() );
         galleryContainer.appendChild( self.createButtonsView() );
+        galleryContainer.appendChild( self.createCounterView() );
 
         self.container.appendChild(galleryContainer);
     }
@@ -75,6 +84,7 @@ let GalleryComponent = function(images, target) {
     this.setImage = function() {
         let self = this;
         self.imgTagRef.src = path + self.images[self.currentImageIndex];
+        self.updateCounter();
     };
 
     this.nextImage = function(){
