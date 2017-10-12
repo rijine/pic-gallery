@@ -1,0 +1,13 @@
+.image-container {
+    border: 1px solid #000;
+    height: 300px;
+    width: 400px;
+}
+
+.prev-btn {
+    background-color: #079ad4;
+}
+
+.next-btn {
+    background-color: #079ad4;
+}
