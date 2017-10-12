@@ -80,7 +80,7 @@ gulp.task('open', function () {
 gulp.task('watch', function () {
     gulp.watch(Config.paths.src.html, ['html']);
     gulp.watch(Config.paths.src.css, ['css']);
-    gulp.watch(Config.paths.src.js, ['js', 'jshint']);
+    gulp.watch(Config.paths.src.js, ['js']);
 });
 
 // Gulp default task
