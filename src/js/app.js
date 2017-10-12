@@ -15,12 +15,13 @@ let Gallery = function(images, target) {
     }
 
     this.createButtonsView = function(){
+        let self = this;
         let buttonContainer = document.createElement('div');
         let nextBtn = document.createElement('button');
         let prevBtn = document.createElement('button');
-        nextBtn.className = 'next-btn';
+        nextBtn.className = 'btn';
         nextBtn.innerHTML = 'Next >';
-        prevBtn.className = 'prev-btn';
+        prevBtn.className = 'btn';
         prevBtn.innerHTML = '< Previous';
 
         //Events
@@ -43,6 +44,7 @@ let Gallery = function(images, target) {
     this.createView = function(){
         let self = this;
         let galleryContainer = document.createElement('div');
+        galleryContainer.className = 'container';
         galleryContainer.appendChild( self.createImageView() );
         galleryContainer.appendChild( self.createButtonsView() );
 

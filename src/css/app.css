@@ -1,13 +1,41 @@
+body {
+    padding: 20px;
+}
+
 .image-container {
     border: 1px solid #000;
     height: 300px;
     width: 400px;
 }
 
-.prev-btn {
+.button-container {
+    text-align: center
+}
+
+.container {
+    text-align: center;
+}
+
+.btn {
+    margin: 10px;
+    padding: 12px 40px;
+    border: none;
+    background-color: #03A9F4;
+    width: 180px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #FFF;
+}
+
+.btn:hover {
+    background-color: #0199dd;
+}
+
+
+/* .btn.prev-btn {
     background-color: #079ad4;
 }
 
-.next-btn {
+.btn.next-btn {
     background-color: #079ad4;
-}
+} */
