@@ -1,19 +1,36 @@
 body {
+    padding: 0 30px;
+    background-color: #f8f8f8;
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+    height: 430px;
     padding: 20px;
+    background-color: #FFF;
+    text-align: center;
 }
 
 .image-container {
     border: 1px solid #000;
     height: 350px;
     width: 600px;
+    /* margin: 1px 5px; */
+}
+
+.image {
+    margin: 0 auto;
 }
 
 .button-container {
     text-align: center
 }
 
-.container {
-    text-align: center;
+.counter {
+    background-color: rgb(192, 244, 3);
+    padding: 0 8px;
+    border: 1px solid #e2e2e2;
 }
 
 .btn {

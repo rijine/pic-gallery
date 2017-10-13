@@ -48,6 +48,7 @@ let GalleryComponent = function(images, target) {
         let imageContainer = document.createElement('div');
         self.imgTagRef = document.createElement('img');
         self.imgTagRef.className = 'image-container'; 
+        //imageContainer.className = 'image-container'; 
         imageContainer.appendChild(self.imgTagRef);
 
         return imageContainer;
@@ -57,6 +58,7 @@ let GalleryComponent = function(images, target) {
         let self = this;
         let counterContainer = document.createElement('div');
         self.counterRef = document.createElement('span');
+        self.counterRef.className = 'counter';
 
         counterContainer.appendChild(self.counterRef);
         return counterContainer;
@@ -64,7 +66,7 @@ let GalleryComponent = function(images, target) {
 
     this.updateCounter = function() {
         let self = this;
-        self.counterRef.innerHTML = '(' + (self.currentImageIndex + 1) + '/' + self.images.length + ')';
+        self.counterRef.innerHTML =  (self.currentImageIndex + 1) + ' / ' + self.images.length ;
     }
 
     this.createView = function(){
@@ -72,8 +74,8 @@ let GalleryComponent = function(images, target) {
         let galleryContainer = document.createElement('div');
         galleryContainer.className = 'container';
         galleryContainer.appendChild( self.createImageView() );
-        galleryContainer.appendChild( self.createButtonsView() );
         galleryContainer.appendChild( self.createCounterView() );
+        galleryContainer.appendChild( self.createButtonsView() );
 
         self.container.appendChild(galleryContainer);
     }
