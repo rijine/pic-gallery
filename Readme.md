@@ -3,3 +3,11 @@ Todos
 2. There should be one button to go to the next image and one to go back - Done
 3. A counter should be shown, indicating the current image shown out of how many 9/11 - Done
 4. Enhance Layouting & Container Styling - P
+
+
+**To Run**
+------------------
+
+  npm install
+  
+  npm start or gulp
