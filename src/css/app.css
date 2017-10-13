@@ -31,6 +31,7 @@ body {
     background-color: rgb(192, 244, 3);
     padding: 0 8px;
     border: 1px solid #e2e2e2;
+    float: right;
 }
 
 .btn {
@@ -46,6 +47,29 @@ body {
 
 .btn:hover {
     background-color: #0199dd;
+}
+
+.shadow-btn {
+    /* margin: 10px;
+    padding: 12px 20px; */
+    border: none;
+    background-color: rgb(99, 99, 99);
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #FFF;
+    top: 25%;
+    position: absolute;
+}
+
+.shadow-btn.left {
+    float: left;
+}
+
+.shadow-btn.right {
+    float: right;
 }
 
 

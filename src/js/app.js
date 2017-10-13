@@ -1,4 +1,4 @@
-let images = ['lorempixel.jpg', 'lorempixel-1.jpg'];
+let images = ['lorempixel.jpg', 'lorempixel-1.jpg', 'http://lorempixel.com/600/350/?3'];
 
 
 let GalleryComponent = function(images, target) {
@@ -18,6 +18,22 @@ let GalleryComponent = function(images, target) {
         self.updateCounter();
 
     }
+
+    /*
+    this.createShadowView = function(){
+        let self = this;
+        let shadowButtonContainer = document.createElement('div');
+        let shadowNextBtn = document.createElement('a');
+        let shadowPrevBtn = document.createElement('a');
+        shadowNextBtn.className = 'shadow-btn right';
+        shadowNextBtn.innerHTML = '&#10097;';
+        shadowPrevBtn.className = 'shadow-btn left';
+        shadowPrevBtn.innerHTML = '&#10096;';
+
+        shadowButtonContainer.appendChild(shadowPrevBtn);
+        shadowButtonContainer.appendChild(shadowNextBtn);
+        return shadowButtonContainer;
+    }*/
 
     this.createButtonsView = function(){
         let self = this;
@@ -50,6 +66,7 @@ let GalleryComponent = function(images, target) {
         self.imgTagRef.className = 'image-container'; 
         //imageContainer.className = 'image-container'; 
         imageContainer.appendChild(self.imgTagRef);
+        //imageContainer.appendChild(self.createShadowView());
 
         return imageContainer;
     }
@@ -74,6 +91,7 @@ let GalleryComponent = function(images, target) {
         let galleryContainer = document.createElement('div');
         galleryContainer.className = 'container';
         galleryContainer.appendChild( self.createImageView() );
+        //galleryContainer.appendChild( self.createShadowView() );
         galleryContainer.appendChild( self.createCounterView() );
         galleryContainer.appendChild( self.createButtonsView() );
 
@@ -85,7 +103,13 @@ let GalleryComponent = function(images, target) {
 
     this.setImage = function() {
         let self = this;
-        self.imgTagRef.src = path + self.images[self.currentImageIndex];
+        let currentImagePath = self.images[self.currentImageIndex];
+        /* to determine local or online pic */
+        if(currentImagePath.indexOf('://') > -1){
+            self.imgTagRef.src = currentImagePath;
+        }else{
+            self.imgTagRef.src = path + currentImagePath;
+        }
         self.updateCounter();
     };
 
