@@ -64,7 +64,6 @@ let GalleryComponent = function(images, target) {
         let imageContainer = document.createElement('div');
         self.imgTagRef = document.createElement('img');
         self.imgTagRef.className = 'image-container'; 
-        //imageContainer.className = 'image-container'; 
         imageContainer.appendChild(self.imgTagRef);
         //imageContainer.appendChild(self.createShadowView());
 
@@ -134,6 +133,10 @@ let GalleryComponent = function(images, target) {
     }
 
 }
-
+//instance 1
 let gallery = new GalleryComponent(images);
 gallery.init();
+
+//instance 2
+// let gallery1 = new GalleryComponent(images);
+// gallery1.init();
