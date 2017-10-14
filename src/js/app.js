@@ -44,6 +44,7 @@ let GalleryComponent = function(images, target) {
         nextBtn.innerHTML = 'Next >>';
         prevBtn.className = 'btn';
         prevBtn.innerHTML = '<< Previous';
+        buttonContainer.className = 'button-container';
 
         //Events
         nextBtn.addEventListener("click", function(){
